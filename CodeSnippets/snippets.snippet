@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>s_SqlConnectionString</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[@"Server=.\SQLEXPRESS;Database=CycleSales;Trusted_Connection=True;"]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>s_DoublePricesAction</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[public IActionResult DoublePrices()
+        {
+            var svc = new PriceService(db);
+            svc.UpdatePrices(2);
+            return RedirectToAction("Index");
+        }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Shortcut>s_SetLastUpdatedForModifiedBikes</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp">
+        <![CDATA[this.ChangeTracker.DetectChanges();
+
+            foreach (var item in this.ChangeTracker.Entries<Bike>()
+			    .Where(e => e.State == EntityState.Modified || e.State == EntityState.Added))
+            {
+			    // item.Property("LastUpdated").CurrentValue = DateTime.Now;
+                var prop = this.Model.GetEntityType(typeof(Bike)).GetProperty("LastUpdated");
+                item.StateEntry[prop] = DateTime.Now;
+            }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
+

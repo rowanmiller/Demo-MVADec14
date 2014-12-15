@@ -1,0 +1,7 @@
+﻿{
+    "EntityFramework": {
+        "CycleSalesContext": {
+            "ConnectionString": "Server=.\\SQLEXPRESS;Database=CycleSales;Trusted_Connection=True;"
+        }
+    }
+}
