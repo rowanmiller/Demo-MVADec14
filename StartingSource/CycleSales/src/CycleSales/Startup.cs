@@ -33,8 +33,7 @@ namespace CycleSales
         {
             // Add EF services to the services container.
             services.AddEntityFramework(Configuration)
-                .AddSqlServer()
-                .AddDbContext<CycleSalesContext>(c => c.UseSqlServer());
+                .AddSqlServer();
 
             // Add MVC services to the services container.
             services.AddMvc();
