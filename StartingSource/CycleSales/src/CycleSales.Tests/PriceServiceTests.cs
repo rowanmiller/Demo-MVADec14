@@ -15,7 +15,7 @@ namespace CycleSales.Tests
             var options = new DbContextOptions<CycleSalesContext>()
                 .UseSqlServer(@"Server=.\SQLEXPRESS;Database=TestDatabase;Trusted_Connection=True;");
 
-            // Act
+            // Arrange
             using (var db = new CycleSalesContext(options))
             {
                 db.Database.EnsureDeleted();
@@ -26,7 +26,7 @@ namespace CycleSales.Tests
                 db.SaveChanges();
             }
 
-            // Arrange
+            // Act
             using (var db = new CycleSalesContext(options))
             {
                 var svc = new PriceService(db);
