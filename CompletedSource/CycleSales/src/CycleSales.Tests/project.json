@@ -4,7 +4,7 @@
         "CycleSales": "",
         "EntityFramework.InMemory": "7.0.0-beta2-11771",
         "Moq": "4.2.1312.1622",
-        "Xunit.KRunner": "1.0.0-*"
+        "Xunit.KRunner": "1.0.0-rc1-10618"
     },
     "commands": {
         "test": "Xunit.KRunner"
