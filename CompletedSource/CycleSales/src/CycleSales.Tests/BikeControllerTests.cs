@@ -20,8 +20,8 @@ namespace CycleSales.Tests
                 db.Bikes.Add(new Bike { Retail = 100 });
                 db.SaveChanges();
 
-                var result = new BikeController(db).Index();
-                Console.WriteLine(result);
+                //var result = new BikeController(db).Index();
+                //Console.WriteLine(result);
             }
         }
     }
