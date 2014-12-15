@@ -13,11 +13,6 @@ namespace CycleSales.Models
 
         public DbSet<Bike> Bikes { get; set; }
 
-        protected override void OnConfiguring(DbContextOptions options)
-        {
-            //options.UseSqlServer();// @"Server=.\SQLEXPRESS;Database=CycleSales;Trusted_Connection=True;");
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Bike>()
@@ -29,9 +24,9 @@ namespace CycleSales.Models
             this.ChangeTracker.DetectChanges();
 
             foreach (var item in this.ChangeTracker.Entries<Bike>()
-                .Where(e => e.State == EntityState.Modified))
+                .Where(e => e.State == EntityState.Modified || e.State == EntityState.Added))
             {
-                // TODO: When supported, update to: item.Property("LastUpdated").CurrentValue = DateTime.Now;
+                // item.Property("LastUpdated").CurrentValue = DateTime.Now;
                 var prop = this.Model.GetEntityType(typeof(Bike)).GetProperty("LastUpdated");
                 item.StateEntry[prop] = DateTime.Now;
             }

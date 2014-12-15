@@ -16,12 +16,8 @@ namespace CycleSales.Controllers
 
         public IActionResult DoublePrices()
         {
-            foreach (var item in db.Bikes)
-            {
-                item.Retail *= 2;
-            }
-
-            db.SaveChanges();
+            var svc = new PriceService(db);
+            svc.UpdatePrices(2);
             return RedirectToAction("Index");
         }
 

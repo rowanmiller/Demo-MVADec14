@@ -20,6 +20,7 @@ namespace CycleSales.Migrations
                         b.Property<int>("BikeId")
                             .GenerateValueOnAdd();
                         b.Property<string>("Description");
+                        b.Property<string>("Features");
                         b.Property<string>("ImageUrl");
                         b.Property<DateTime>("LastUpdated");
                         b.Property<string>("ModelNo");

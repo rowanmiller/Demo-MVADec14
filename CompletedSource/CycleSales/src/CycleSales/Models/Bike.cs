@@ -10,5 +10,6 @@ namespace CycleSales.Models
         public decimal Retail { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
+        public string Features { get; set; }
     }
 }
